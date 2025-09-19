@@ -2,86 +2,56 @@ import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-2xl font-playfair font-bold text-white mb-4">
-              PuzzleChallenge
-            </h3>
-            <p className="mb-4">
-              The premier destination for skill-based puzzle competitions. 
-              Test your abilities and compete with the best.
-            </p>
-            <p className="text-sm text-gray-400">
-              © 2024 PuzzleChallenge. All rights reserved.
-            </p>
-          </div>
+    <footer className="w-full bg-teal text-ivory pt-16 border-t border-gold">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        
+        {/* Company Info */}
+        <div className="space-y-5">
+          <h3 className="text-3xl font-playfair font-bold relative inline-block pb-2">
+            PuzzleChallenge
+            <span className="absolute left-0 -bottom-1 w-16 h-0.5 bg-gold rounded"></span>
+          </h3>
+          <p className="text-ivory/90 leading-relaxed font-lora">
+            The premier destination for skill-based puzzle competitions. 
+            Test your abilities and compete with the best.
+          </p>
+        </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="/" className="hover:text-teal-400 transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/rules" className="hover:text-teal-400 transition-colors">
-                  Contest Rules
-                </a>
-              </li>
-              <li>
-                <a href="mailto:info@crowbarltd.com" className="hover:text-teal-400 transition-colors">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+        {/* Social Media */}
+        <div className="space-y-5">
+          <h4 className="text-xl font-playfair font-semibold relative pb-1 inline-block">
+            Follow Us
+            <span className="absolute left-0 -bottom-1 w-12 h-0.5 bg-gold rounded"></span>
+          </h4>
+          <div className="flex space-x-4">
+            {[
+              { href: "https://www.linkedin.com/in/shourya-mittal-160028283/", Icon: Linkedin, label: "LinkedIn" },
+              { href: "https://facebook.com", Icon: Facebook, label: "Facebook" },
+              { href: "https://instagram.com", Icon: Instagram, label: "Instagram" },
+              { href: "https://twitter.com", Icon: Twitter, label: "Twitter" },
+              { href: "https://youtube.com", Icon: Youtube, label: "YouTube" },
+            ].map(({ href, Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center p-3 rounded-full bg-ivory text-teal 
+                           hover:bg-gold hover:text-teal transition-all shadow-md 
+                           transform hover:scale-110 hover:shadow-lg"
+              >
+                <Icon size={22} />
+              </a>
+            ))}
           </div>
+        </div>
+      </div>
 
-          {/* Social Media */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a 
-                href="https://linkedin.com" 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-teal-600 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="https://facebook.com" 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-teal-600 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-teal-600 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-teal-600 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a 
-                href="https://youtube.com" 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-teal-600 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube size={20} />
-              </a>
-            </div>
-          </div>
+      {/* Bottom Bar */}
+      <div className="mt-12 border-t border-ivory/30">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-ivory/80">
+          <p>© {new Date().getFullYear()} PuzzleChallenge. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -41,17 +41,19 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <Card className="text-center p-8">
+      <Card className="text-center p-8 rounded-2xl shadow-md">
         <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <span className="text-2xl">✉️</span>
         </div>
-        <h3 className="text-xl font-playfair font-semibold mb-2">Message Sent!</h3>
-        <p className="text-gray-600 mb-4">
+        <h3 className="text-xl font-playfair font-semibold mb-2 text-gray-900">
+          Message Sent!
+        </h3>
+        <p className="text-gray-600 mb-6 font-lora">
           Thank you for contacting us. We'll get back to you soon.
         </p>
         <button
           onClick={() => setSuccess(false)}
-          className="text-teal-600 hover:text-teal-700 font-medium"
+          className="text-[#008080] hover:text-[#006666] font-medium transition-colors"
         >
           Send Another Message
         </button>
@@ -60,54 +62,75 @@ export default function ContactForm() {
   }
 
   return (
-    <Card>
+    <Card className="p-8 rounded-2xl shadow-md">
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700 mb-2 font-lora"
+          >
             Name
           </label>
           <input
             type="text"
             id="name"
             required
-            className="input-field"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#008080] focus:border-[#008080] transition-all font-lora"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
         </div>
-        
+
+        {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-2 font-lora"
+          >
             Email
           </label>
           <input
             type="email"
             id="email"
             required
-            className="input-field"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#008080] focus:border-[#008080] transition-all font-lora"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
         </div>
-        
+
+        {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-2 font-lora"
+          >
             Message
           </label>
           <textarea
             id="message"
             required
             rows={5}
-            className="input-field resize-none"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#008080] focus:border-[#008080] transition-all resize-none font-lora"
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
           />
         </div>
-        
+
+        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
-          className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+          className="
+            w-full px-6 py-3 rounded-xl text-white font-lora font-semibold 
+            bg-[#008080] shadow-md transition-all duration-300 
+            hover:bg-[#006666] hover:shadow-lg 
+            disabled:opacity-60 disabled:cursor-not-allowed
+            disabled:border disabled:border-[#FFD700]
+          "
         >
           {loading ? 'Sending...' : 'Send Message'}
         </button>

@@ -36,7 +36,13 @@ export default function CheckoutButton() {
     <button
       onClick={handleCheckout}
       disabled={loading}
-      className="btn-primary text-lg px-8 py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+      className="
+        bg-[#008080] text-white font-['Lora'] text-lg px-8 py-4 rounded-2xl shadow-md 
+        transition-all duration-300 ease-in-out
+        hover:bg-[#006666] hover:shadow-lg
+        disabled:opacity-60 disabled:cursor-not-allowed
+        disabled:border disabled:border-[#FFD700]
+      "
     >
       {loading ? 'Processing...' : 'Enter Contest - $10'}
     </button>
