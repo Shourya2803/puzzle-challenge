@@ -1,12 +1,6 @@
 import { cn } from '@/lib/utils'
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-export function Input({ className, ...props }: InputProps) {
-  return (
-    <input
-      className={cn('input-field', className)}
-      {...props}
-    />
-  )
+export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  const { className, ...rest } = props
+  return <input className={cn('input-field', className)} {...rest} />
 }

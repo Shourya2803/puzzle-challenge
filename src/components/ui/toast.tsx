@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ToastProps {
@@ -19,10 +19,12 @@ export function Toast({ message, type = 'success', onClose }: ToastProps) {
   }, [onClose])
 
   return (
-    <div className={cn(
-      'fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50',
-      type === 'success' ? 'bg-teal-500 text-white' : 'bg-red-500 text-white'
-    )}>
+    <div
+      className={cn(
+        'fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50',
+        type === 'success' ? 'bg-teal-500 text-white' : 'bg-red-500 text-white'
+      )}
+    >
       {message}
     </div>
   )

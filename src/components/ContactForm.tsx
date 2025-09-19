@@ -49,8 +49,9 @@ export default function ContactForm() {
           Message Sent!
         </h3>
         <p className="text-gray-600 mb-6 font-lora">
-          Thank you for contacting us. We'll get back to you soon.
-        </p>
+  {"Thank you for contacting us. We'll get back to you soon."}
+</p>
+
         <button
           onClick={() => setSuccess(false)}
           className="text-[#008080] hover:text-[#006666] font-medium transition-colors"
