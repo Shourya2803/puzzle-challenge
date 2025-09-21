@@ -1,10 +1,21 @@
-## Project Configuration Details
+# Project Configuration Details
 
-### 1. Puzzle Loading in Database
+---
+
+## 1. Puzzle Loading in Database
 - **Location:** Puzzles are stored in the `puzzles` table/collection.  
 - **Method:** Admins upload puzzles via the **Admin Dashboard UI** or through a seeding script (`/prisma/seed.ts`).  
 - **File Reference:** Database schema defined in `prisma/schema.prisma`.  
 - **Notes:** Initial puzzles may require manual seeding using `npx prisma db seed`.
+
+### Flowchart
+```mermaid
+flowchart TD
+    A[Admin Dashboard / Seed Script] --> B[Validate Puzzle Data]
+    B -->|Valid| C[Insert into puzzles table]
+    B -->|Invalid| D[Reject & Log Error]
+    C --> E[Puzzle Available for Contest Entries]
+
 
 ---
 
