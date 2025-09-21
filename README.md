@@ -27,8 +27,10 @@
 
 ### 3. Success/Cancel URLs Configuration
 - **Location:** URLs are configured in the **environment variables** file (`.env`).  
-  - `STRIPE_SUCCESS_URL=https://your-app.vercel.app/success`  
-  - `STRIPE_CANCEL_URL=https://your-app.vercel.app/cancel`  
+  - `STRIPE_SUCCESS_URL=https://my-puzzle-challenge.vercel.app/success`  
+  - `
+STRIPE_CANCEL_URL=https://my-puzzle-challenge.vercel.app/cancel
+`  
 - **Usage:** Passed to the Stripe checkout session in `src/lib/stripe.ts`.
 
 ---
